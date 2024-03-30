@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-out; /* Add fade-in animation */
+        }
+        .admin-options {
+            text-align: center;
+        }
+        .admin-options a {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            background-color: #4169e1; /* Daisy blue color */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease; /* Smooth transition effect */
+        }
+        .admin-options a:hover {
+            background-color: #1e90ff; /* Lighter blue on hover */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="admin-options">
+        <h1>Welcome Admin!</h1>
+        <a href="/admin/admin-create.html">Create New Member</a>
+        <a href="/admin/admin-login.html">Login with Existing Account</a>
+    </div>
+</div>
+</body>
+</html>

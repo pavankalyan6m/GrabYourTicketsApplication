@@ -1,0 +1,39 @@
+# Set the server port to 8888
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+
+
+# Database configuration
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/grab_your_ticket
+    username: root
+    password: pk0101PK
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  security:
+    enabled: false
+
+  mvc:
+    view:
+      suffix=:
+        html:# Logging configuration
+logging:
+  level:
+    root: INFO
+    org.springframework: DEBUG
+    com.project: DEBUG
+  file:
+    name: D:/Personal Project/GrabYourTickets/GrabYourTickets/src/main/Logs/GrabYourTicketsLog.log
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+

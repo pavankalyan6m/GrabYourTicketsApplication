@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to GrabYourTicket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e6fa; /* Lavender background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333; /* Dark grey heading color */
+        }
+        h2 {
+            color: #666; /* Medium grey subheading color */
+        }
+        ul {
+            list-style-type: none; /* Remove bullet points from the list */
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Blue color for links */
+            color: #fff; /* White text color */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease; /* Smooth transition effect */
+            animation: pulse 1s infinite alternate; /* Animation effect */
+        }
+        a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to GrabYourTicket</h1>
+    <div>
+        <h2 style="margin-bottom: 50px;">Select your role:</h2> <!-- Increased margin bottom for better centering -->
+        <ul>
+            <li><a href="/admin/admin-home.html">Admin login</a></li>
+            <li><a href="/user-login.html">User login</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

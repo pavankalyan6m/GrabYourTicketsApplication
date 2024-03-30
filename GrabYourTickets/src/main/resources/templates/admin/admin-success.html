@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light greyish blue background color */
+            font-family: 'Montserrat', sans-serif;
+            color: #000; /* Black foreground color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center; /* Center-align content */
+        }
+
+        h1 {
+            color: #6b2737; /* Cherry red color for headings */
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            margin: 10px; /* Add margin around buttons */
+            padding: 10px 20px; /* Add padding to buttons */
+            font-size: 18px; /* Increase font size */
+            border-radius: 5px; /* Add border radius */
+            background-color: #6a5acd; /* Slate blue color for Movies button */
+            color: #fff; /* White text color */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #483d8b; /* Darker blue on hover */
+            transform: translateY(-3px);
+        }
+
+        .events-button {
+            background-color: #9370db; /* Medium purple color for Events button */
+            color: #fff; /* White text color */
+        }
+
+        .image-block {
+            margin: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-block img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px; /* Add border radius to images */
+            border: 5px solid #8a2be2; /* Blue violet color border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+        }
+
+        .image-block:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome Admin!</h1>
+    <button class="movies-button" onclick="redirectToMovies()">Movies</button>
+    <div class="image-block">
+        <img src="/admin/movies_gyt.jpg" alt="Movies">
+    </div>
+    <button class="events-button" onclick="redirectToEvents()">Events</button>
+    <div class="image-block">
+        <img src="/admin/events_gyt.jpg" alt="Events">
+    </div>
+</div>
+
+<script>
+    function redirectToMovies() {
+        // Redirect to the movies management page
+        // Replace '#' with actual URL if needed
+        window.location.href = "#";
+    }
+
+    function redirectToEvents() {
+        // Redirect to the events management page
+        // Replace '#' with actual URL if needed
+        window.location.href = "#";
+    }
+</script>
+</body>
+</html>
