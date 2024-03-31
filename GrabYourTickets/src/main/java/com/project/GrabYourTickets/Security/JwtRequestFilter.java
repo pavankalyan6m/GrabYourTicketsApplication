@@ -25,7 +25,6 @@ import java.io.IOException;
 import java.security.Key;
 
 @ApplicationScoped
-@WebFilter("/api/*")
 public class JwtRequestFilter implements Filter {
 
     private Key secretKey; // Replace with your secret key

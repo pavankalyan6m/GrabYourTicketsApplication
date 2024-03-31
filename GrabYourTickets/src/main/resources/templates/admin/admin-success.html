@@ -84,14 +84,14 @@
             padding: 15px 30px; /* Add padding to buttons */
             font-size: 18px; /* Increase font size */
             border-radius: 5px; /* Add border radius */
-            background-color: #6a5acd; /* Slate blue color for Movies button */
             color: #fff; /* White text color */
+            background-color: #6a5acd; /* Fallback color for older browsers */
+            background-image: linear-gradient(to bottom right, #6a5acd, #d8bfd8); /* Purple to whitish lavender gradient */
             transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease; /* Add transition for smooth animation */
         }
 
         .button:hover {
-            background-color: #483d8b; /* Darker blue on hover */
-            color: #fff; /* White text color */
+            background-color: #483d8b; /* Darker purple on hover */
             transform: translateY(-3px); /* Move button up on hover */
         }
 

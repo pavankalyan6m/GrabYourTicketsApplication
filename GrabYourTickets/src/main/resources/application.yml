@@ -20,7 +20,10 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   security:
-    enabled: false
+    basic:
+      enabled: false
+    username: admin
+    password: admin
 
   mvc:
     view:

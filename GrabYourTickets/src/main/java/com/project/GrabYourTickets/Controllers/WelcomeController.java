@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/welcome")
 public class WelcomeController {
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public String welcome() {
         return "Welcome"; // Assuming "Welcome.html" exists in your static folder
     }

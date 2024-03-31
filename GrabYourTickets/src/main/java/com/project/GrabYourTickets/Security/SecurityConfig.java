@@ -37,8 +37,9 @@ public class SecurityConfig {
         protected void configure(HttpSecurity http) throws Exception {
             http.csrf(csrf -> csrf.disable())
                     .authorizeHttpRequests(requests -> requests
-                            .requestMatchers("/welcome/**").permitAll()
-                            .requestMatchers("/admin/create").permitAll() // Allow access to /admin/create without authentication
+                            .requestMatchers("/welcome/user").permitAll()
+                            .requestMatchers("/welcome/hello").permitAll()
+                            //.requestMatchers("/admin/authenticate").permitAll()// Allow access to /admin/create without authentication
                             .anyRequest().authenticated()
                     )
                     .formLogin(form -> form.disable())
