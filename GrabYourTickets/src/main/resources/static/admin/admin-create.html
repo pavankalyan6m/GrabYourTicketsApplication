@@ -10,7 +10,7 @@
             background-color: #f3f3f3;
             margin: 0;
             padding: 0;
-            background-image: url("/admin/admin-create_image.png");
+            background-image: url("/admin/images/admin-create_image.png");
             background-size: cover;
             background-position: center;
         }
@@ -91,39 +91,6 @@
     </div>
 </div>
 
-<script>
-    document.getElementById("createAdminForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        fetch("http://localhost:8080/admin/create", {
-            method: "POST",
-            body: new FormData(this)
-        })
-        .then(response => {
-            if (response.ok) {
-                // Display success message
-                document.getElementById("successMessage").style.display = "block";
-
-                // Countdown timer
-                let countdown = 3;
-                const countdownSpan = document.getElementById("countdown");
-                const timer = setInterval(() => {
-                    countdown--;
-                    countdownSpan.textContent = countdown;
-                    if (countdown === 0) {
-                        clearInterval(timer);
-                        window.location.href = "admin-login.html";
-                    }
-                }, 1000);
-            } else {
-                throw new Error("Failed to create admin");
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            // Handle error if needed
-        });
-    });
-</script>
+<script src="js/admin-create.js"></script>
 </body>
 </html>
