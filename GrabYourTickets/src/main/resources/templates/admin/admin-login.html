@@ -9,7 +9,8 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9; /* Light gray background color */
+            background-color: #2c3e50; /* Navy blue background color */
+            color: #fff; /* White text color */
         }
         .container {
             width: 100%;
@@ -19,29 +20,33 @@
             align-items: center;
         }
         form {
-            background-color: #fff; /* White background color */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #34495e; /* Darker navy blue background color */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative;
         }
         h1 {
-            color: #333; /* Dark gray color for headings */
-            text-align: center;
             margin-bottom: 20px;
+            font-size: 24px;
         }
         label {
-            color: #555; /* Dark gray color for labels */
-            font-weight: bold;
+            display: block;
+            margin-bottom: 10px; /* Adjusted margin */
+            text-align: left;
         }
         input[type="text"],
         input[type="password"] {
-            width: 100%;
+            width: 320px; /* Set width to 100% minus padding */
             padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
+            margin: 5px 0 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
+            font-size: 16px;
         }
         .password-field {
             position: relative;
@@ -52,30 +57,36 @@
             right: 10px;
             transform: translateY(-50%);
             cursor: pointer;
+            color: #ccc; /* Light grey color */
+            z-index: 1;
         }
         button[type="submit"] {
-            width: 100%;
+            width: 120px; /* Set custom width for the button */
             padding: 10px;
             border: none;
             border-radius: 5px;
-            background-color: #007bff; /* Primary blue color */
+            background-color: #2980b9; /* Navy blue button color */
             color: #fff;
             cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
         }
         button[type="submit"]:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #1e6393; /* Darker navy blue button color on hover */
         }
         .error-message {
             display: none;
             position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 10px;
+            left: 0;
+            right: 0;
+            margin: auto;
             padding: 10px 20px;
-            background-color: #ff0000; /* Red color for error message */
+            background-color: #ff3333; /* Red color for error message */
             color: #fff;
             border-radius: 5px;
             animation: slideIn 0.5s ease-in-out;
+            max-width: 300px; /* Set maximum width */
         }
         @keyframes slideIn {
             from {
@@ -83,7 +94,7 @@
                 opacity: 0;
             }
             to {
-                top: 20px;
+                top: 10px;
                 opacity: 1;
             }
         }
@@ -93,11 +104,11 @@
 <div class="container">
     <form id="loginForm">
         <h1>Admin Login</h1>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
 
         <div class="password-field">
-            <label for="password">Password:</label><br>
+            <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <span class="password-toggle" id="togglePassword">&#128065;</span>
         </div>

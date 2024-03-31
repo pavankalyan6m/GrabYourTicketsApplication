@@ -12,30 +12,33 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden; /* Prevent horizontal overflow */
+            background-color: #222; /* Set background color */
         }
 
-        .half-container {
+        .container {
             display: flex;
-            flex-direction: column;
-            height: 50vh; /* Make each half take half viewport height */
+            height: 100vh; /* Make container take full viewport height */
         }
 
         .half {
             flex: 1;
-            width: 100%;
             display: flex;
-            position: relative;
+            flex-direction: column; /* Align items vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
             overflow: hidden; /* Hide overflowing content */
+            position: relative;
         }
 
         .image-block {
-            width: 50%; /* Each image takes 50% width */
+            width: 100%; /* Each image-block takes full width */
+            height: 50%; /* Each image-block takes 50% height */
             background-size: cover; /* Ensure entire container is covered by the background image */
             background-position: center;
             background-repeat: no-repeat; /* Prevent background image from repeating */
             position: relative;
             overflow: hidden; /* Hide overflowing content */
-            height: 100%; /* Ensure image-block takes full height */
+            transition: transform 0.6s cubic-bezier(0.25, 0.45, 0.45, 0.95); /* Add smooth transition */
         }
 
         .overlay {
@@ -47,34 +50,15 @@
             background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
         }
 
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #fff;
-            z-index: 1;
-        }
-
         .button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center buttons vertically */
+            align-items: center; /* Center buttons horizontally */
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 120px;
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s forwards; /* Apply fade-in animation */
-            margin-top: -30px; /* Move the button container up by 30 pixels */
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            top: 50%; /* Position the container at the vertical center */
+            transform: translateY(-50%); /* Adjust for container's height */
+            width: 100%;
         }
 
         .button {
@@ -87,12 +71,12 @@
             color: #fff; /* White text color */
             background-color: #6a5acd; /* Fallback color for older browsers */
             background-image: linear-gradient(to bottom right, #6a5acd, #d8bfd8); /* Purple to whitish lavender gradient */
-            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease; /* Add transition for smooth animation */
+            transition: transform 0.3s ease; /* Add transition for smooth scaling */
         }
 
         .button:hover {
-            background-color: #483d8b; /* Darker purple on hover */
-            transform: translateY(-3px); /* Move button up on hover */
+            transform: scale(1.1); /* Scale button on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Add box shadow on hover */
         }
 
         .button i {
@@ -101,7 +85,7 @@
     </style>
 </head>
 <body>
-<div class="half-container">
+<div class="container">
     <div class="half">
         <div class="image-block" style="background-image: url('/admin/images/movies_gyt.jpg');">
             <div class="overlay"></div>
@@ -109,12 +93,10 @@
         <div class="image-block" style="background-image: url('/admin/images/movies1_gyt.jpg');">
             <div class="overlay"></div>
         </div>
-        <div class="button-container fade-in">
+        <div class="button-container">
             <button class="button" onclick="redirectToMovies()"><i class="fas fa-film"></i>Movies</button>
         </div>
     </div>
-</div>
-<div class="half-container">
     <div class="half">
         <div class="image-block" style="background-image: url('/admin/images/events_gyt.jpg');">
             <div class="overlay"></div>
@@ -122,7 +104,7 @@
         <div class="image-block" style="background-image: url('/admin/images/events1_gyt.jpg');">
             <div class="overlay"></div>
         </div>
-        <div class="button-container fade-in">
+        <div class="button-container">
             <button class="button" onclick="redirectToEvents()"><i class="fas fa-calendar-alt"></i>Events</button>
         </div>
     </div>

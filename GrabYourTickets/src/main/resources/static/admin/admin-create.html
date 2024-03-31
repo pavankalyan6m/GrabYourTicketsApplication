@@ -7,45 +7,113 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
+            background-color: #2c3e50; /* Navy blue background color */
+            color: #ccc; /* Grey text color */
             margin: 0;
             padding: 0;
             background-image: url("/admin/images/admin-create_image.png");
             background-size: cover;
             background-position: center;
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .container {
-            max-width: 500px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background-color: #34495e; /* Darker navy blue background color */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative;
         }
 
         h1 {
-            font-size: 24px;
             margin-bottom: 20px;
-            color: #333;
-            text-align: center;
+            font-size: 24px;
+            color: #fff; /* White heading color */
         }
 
         label {
-            font-weight: bold;
-            color: #555;
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+            color: #ccc; /* Grey label color */
         }
 
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            width: 100%;
+            width: 340px;
             padding: 10px;
+            margin-top: 5px; /* Adjusted margin */
             margin-bottom: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #555;
             border-radius: 5px;
             box-sizing: border-box;
+            background-color: #fff; /* White input background color */
+            color: #333; /* Dark grey text color */
+            transition: border-color 0.3s;
         }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff; /* Change border color on focus */
+        }
+
+        .password-field {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #ccc; /* Light grey color */
+        }
+
+        .eye-icon {
+            width: 20px;
+            height: auto;
+        }
+.success-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 80%;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Dark green color */
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Ensure the success box is above other content */
+}
+
+
+
 
         button[type="submit"] {
             background-color: #007bff;
@@ -55,12 +123,12 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            width: 100%;
-            transition: background-color 0.3s;
+            width: 25%; /* Reduce width by 75% */
+            transition: background-color 0.3s; /* Add transition for button color change */
         }
 
         button[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Darker color on hover */
         }
 
         .success-message {
@@ -68,6 +136,7 @@
             text-align: center;
             margin-top: 20px;
             color: #4caf50;
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation for success message */
         }
     </style>
 </head>
@@ -75,22 +144,29 @@
 <div class="container">
     <form id="createAdminForm" action="http://localhost:8080/admin/create" method="post">
         <h1>Create New Admin</h1>
-        <label for="name">Name:</label><br>
+        <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br>
 
-        <label for="email">Email:</label><br>
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br>
+        <div class="password-field">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span class="password-toggle" id="togglePassword">&#128065;</span>
+        </div>
 
-        <button type="submit">Create Admin</button>
+        <button type="submit">Create</button>
     </form>
-    <div class="success-message" id="successMessage">
-        Admin creation successful, redirecting you to admin-login page within <span id="countdown">3</span>...
+    <div class="success-box" id="successBox" style="display:none; background-color: #34495e">
+        <!-- Initial success message -->
+        <span id="successMessage1">Admin profile has been successfully created!</span>
+        <!-- Second message with countdown -->
+        <span id="successMessage2" style="display:none;">Redirecting you to the admin login page within <span id="countdown">5</span> seconds...</span>
     </div>
+
 </div>
 
-<script src="js/admin-create.js"></script>
+<script src ="js/admin-create.js"></script>
 </body>
 </html>
