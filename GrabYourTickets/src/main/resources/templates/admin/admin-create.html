@@ -10,6 +10,9 @@
             background-color: #f3f3f3;
             margin: 0;
             padding: 0;
+            background-image: url("/admin/admin-create_image.png");
+            background-size: cover;
+            background-position: center;
         }
 
         .container {
@@ -59,11 +62,18 @@
         button[type="submit"]:hover {
             background-color: #0056b3;
         }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #4caf50;
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <form id="createAdminForm" action="http://localhost:8888/admin/create" method="post">
+    <form id="createAdminForm" action="http://localhost:8080/admin/create" method="post">
         <h1>Create New Admin</h1>
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" required><br>
@@ -73,24 +83,38 @@
 
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
         <button type="submit">Create Admin</button>
     </form>
+    <div class="success-message" id="successMessage">
+        Admin creation successful, redirecting you to admin-login page within <span id="countdown">3</span>...
+    </div>
 </div>
 
 <script>
     document.getElementById("createAdminForm").addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent default form submission
 
-        fetch("http://localhost:8888/admin/create", {
+        fetch("http://localhost:8080/admin/create", {
             method: "POST",
             body: new FormData(this)
         })
         .then(response => {
             if (response.ok) {
-                // Redirect to existing-user.html upon successful response
-                window.location.href = "admin-login.html";
+                // Display success message
+                document.getElementById("successMessage").style.display = "block";
+
+                // Countdown timer
+                let countdown = 3;
+                const countdownSpan = document.getElementById("countdown");
+                const timer = setInterval(() => {
+                    countdown--;
+                    countdownSpan.textContent = countdown;
+                    if (countdown === 0) {
+                        clearInterval(timer);
+                        window.location.href = "admin-login.html";
+                    }
+                }, 1000);
             } else {
                 throw new Error("Failed to create admin");
             }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
@@ -26,17 +27,13 @@ public class AdminCreateController {
     private AdminAuthenticationService authenticationService;
     private static final Logger log = LoggerFactory.getLogger(AdminCreateController.class);
     @PostMapping("/admin/create")
-    public String createAdmin(@RequestBody MultiValueMap<String, String> formData) {
-        // Process the formData and save the admin
-        // Extract form data
-        String username = formData.getFirst("name");
-        String email = formData.getFirst("email");
-        String password = formData.getFirst("password");
-        // You can extract other fields similarly
-
+    public String createAdmin(@RequestParam("name") String name,
+                              @RequestParam("email") String email,
+                              @RequestParam("password") String password) {
+        // Process the form data and save the admin
         // Create Admin object
         Admin admin = new Admin();
-        admin.setName(username);
+        admin.setName(name);
         admin.setEmail(email);
         admin.setPassword(password);
         // Set other fields similarly
@@ -44,7 +41,7 @@ public class AdminCreateController {
         // Save the admin to repository
         adminRepository.save(admin);
 
-        log.info("inside admin-create Controller, creating new Admin with the provided response...");
+        log.info("Inside admin-create Controller, creating new Admin with the provided response...");
         adminRepository.save(admin);
         return "Admin created successfully";
     }

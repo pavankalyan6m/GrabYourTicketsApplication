@@ -3,16 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to GrabYourTicket</title>
+    <title>Welcome to GrabYourTickets</title>
+    <link href="https://fonts.googleapis.com/css?family=Dekko" rel="stylesheet">
+    <style>
+        body, html {
+            font-family: 'Dekko', sans-serif; /* Use Dekko font for all text */
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth; /* Smooth scrolling behavior */
+        }
+
+        .background {
+            position: relative;
+            height: 100%;
+            background-image: url("/welcome_page.jpg"); /* Assuming only one image is needed */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px; /* Add padding for better layout */
+        }
+
+        h1 {
+            font-size: 48px; /* Adjust font size as needed */
+            color: darkred; /* Change heading color to dark red */
+            animation: glassBreak 2s forwards, moveUp 4s forwards, blink 1s infinite; /* Apply animations */
+            text-align: center; /* Center align the main heading */
+            transition: text-transform 0.5s ease; /* Transition for text transformation */
+            text-transform: uppercase; /* Set text to uppercase */
+            margin-top: -30px; /* Adjusted margin to decrease space above heading by 20px */
+        }
+
+        h1:hover {
+            text-transform: lowercase; /* Transform text to lowercase on hover */
+        }
+
+        h1 span {
+            display: inline-block;
+            transition: transform 0.5s ease; /* Transition for individual letter transformation */
+        }
+
+        h1:hover span:nth-child(even) {
+            transform: rotateY(180deg); /* Rotate even letters on hover */
+        }
+
+        h2 {
+            font-size: 24px; /* Adjust font size as needed */
+            color: darkred; /* Change heading color to dark red */
+            margin-bottom: 10px; /* Adjusted margin to decrease space between h2 and buttons */
+            position: relative; /* Position relative for moving downwards */
+            top: 30px; /* Move downwards */
+        }
+
+        .role-selection {
+            display: flex;
+            justify-content: space-between; /* Space out buttons */
+            align-items: center;
+            margin-top: 50px; /* Add spacing from the heading */
+            position: relative; /* Position relative for moving downwards */
+            top: 45px; /* Adjusted top position */
+        }
+
+        .role-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+            padding: 15px; /* Adjust padding for better spacing */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 5px; /* Adjusted margin for spacing */
+        }
+
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Lighten background on hover */
+            border-color: white; /* Change border color on hover */
+        }
+
+        .button-image {
+            width: 100px; /* Adjust image size */
+            height: 100px;
+            border-radius: 50%; /* Make image circular */
+            margin-bottom: 10px; /* Add spacing between image and text */
+        }
+
+        @keyframes glassBreak {
+            0% {
+                transform: translateY(50px) rotate(0); /* Initial position */
+                opacity: 0; /* Initial opacity */
+            }
+            50% {
+                transform: translateY(-50px) rotate(0); /* Break effect */
+                opacity: 0.5; /* Decrease opacity */
+            }
+            100% {
+                transform: translateY(-300px) rotate(360deg); /* Final position */
+                /* Remove opacity property to keep heading visible */
+            }
+        }
+
+        @keyframes moveUp {
+            0% {
+                opacity: 0; /* Initial opacity */
+                transform: translateY(20px); /* Move slightly downwards */
+            }
+            100% {
+                opacity: 1; /* Fully visible */
+                transform: translateY(0); /* Reset position */
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1; /* Fully visible */
+            }
+            50% {
+                opacity: 0.3; /* Semi-visible */
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to GrabYourTicket</h1>
-<div>
-    <h2>Select your role:</h2>
-    <ul>
-        <li><a href="/admin/admin-home.html">Admin login</a></li>
-        <li><a href="/user-login.html">User login</a></li>
-    </ul>
+<div class="background">
+    <h1><span>G</span><span>R</span><span>A</span><span>B</span><span>&nbsp;</span><span>Y</span><span>O</span><span>U</span><span>R</span><span>&nbsp;</span><span>T</span><span>I</span><span>C</span><span>K</span><span>E</span><span>T</span><span>S</span><span>!</span><span>!</span></h1> <!-- Updated main heading text -->
+    <h2>Navigate to your login page!</h2> <!-- Updated casual heading -->
+    <div class="role-selection">
+        <div class="role-option" style="margin-right: 30px;margin-left: 30px;margin-top:15px;"> <!-- Adjusted right margin for spacing -->
+            <a href="/admin/admin-home.html">
+                <img src="/admin/admin_button.jpg" alt="Admin Button" class="button-image">
+                Admin login
+            </a>
+        </div>
+        <div class="role-option">
+            <a href="/user-login.html">
+                <img src="/user/user_button.jpg" alt="User Button" class="button-image">
+                User login
+            </a>
+        </div>
+    </div>
 </div>
+
+<script>
+    // Check if the page was previously scrolled
+    window.onload = function() {
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+    };
+</script>
+
 </body>
 </html>
